@@ -1,0 +1,90 @@
+<div class="mainContainer">
+    <div class="bodyContainer">
+        <div class="topContainer">
+            <!-- Logo Container -->
+            <div class="logoContainer">
+                <img src="assets/pdfEditor/pdfLogo.png" alt="logo" class="logo">
+                <h1 class="logoText">Editor</h1>
+            </div>
+
+            <!-- Welcome Text -->
+            <div class="welcomeTextContainer">
+                <p class="welcomeText">
+                    This Project uses ILovePDF-API with a limited calls, thats why you need Authorization Key.
+                </p>
+                <p class="welcomeText">
+                    You can still upload files. these will NOT be send to a backend or saved anywhere.
+                </p>
+            </div>
+
+            <!-- Authorization -->
+            <div class="authContainer">
+                <input id="keyInput" class="authInput" type="password" placeholder="Authorization Key...">
+                <button class="authButton" type="button" (click)="start()">Los!</button>
+            </div>
+        </div>
+        <p class="anvText" style="font-weight: 700;">{{authStatus}}</p>
+
+        <div class="mergedContainer">
+            <!-- Options container -->
+            <div class="optionsContainer fix">
+                <button class="optionsButton" type="button" (click)="setTool('imagepdf')"
+                    [ngClass]="{toolSelected: selectedTool == 'imagepdf'}">JPG-PDF</button>
+                <button class="optionsButton" type="button" (click)="setTool('pdfjpg')"
+                    [ngClass]="{toolSelected: selectedTool == 'pdfjpg'}">PDF-JPG</button>
+                <button class="optionsButton" type="button" (click)="setTool('merge')"
+                    [ngClass]="{toolSelected: selectedTool == 'merge'}">Merge</button>
+                <button class="optionsButton" type="button" (click)="setTool('compress')"
+                    [ngClass]="{toolSelected: selectedTool == 'compress'}">Compress</button>
+            </div>
+
+            <!-- Upload container -->
+            <div class="uploadContainer fix">
+                <!-- Buttons -->
+                <div class="uploadButtons fix">
+                    <input id="inputFeld" type="file" multiple (change)="addFile($event, fileUpload)"
+                        style="display: none;" #fileUpload>
+                    <button class="uploadButton gradientBlue" type="button" (click)="fileUpload.click()">Add</button>
+                    <button class="uploadButton" type="button" (click)="clear()"
+                        [ngClass]="{gradientRed:fileList.length > 0}" [disabled]="(fileList.length <= 0)">Clear</button>
+                </div>
+                <!-- Files Container -->
+                <div class="filesContainer fix" [ngClass]="{center: fileList.length <= 0}">
+                    <p class="anvText" *ngIf="fileList.length <= 0">No files are Selected!</p>
+                    <app-file-comp *ngFor="let file of fileList; let i = index" fileID={{i}} [fileName]="file.name"
+                        imgSource="assets/pdfEditor/pdfLogo.png"></app-file-comp>
+                </div>
+
+
+                <!-- Anweisung Container -->
+                <!-- TOOLS  -->
+                <div class="anvContainer fix">
+                    <ul>
+                        <li class="anvText">1-Add to choose Files you wish to convert</li>
+                        <li class="anvText">2-Process to start Convertion</li>
+                        <li class="anvText">3-Download your files!</li>
+                    </ul>
+                </div>
+                <!-- Process Area -->
+                <div class="processArea fix">
+                    <!-- Process Button -->
+                    <button *ngIf="!isLoading && downloadDisabled" class="uploadButton"
+                        [ngClass]="{gradientGreen:!processDisabled}" type="button" [disabled]="processDisabled"
+                        (click)="process()">Process</button>
+                    <!-- Loading Spinner -->
+                    <div class="loadingInfo">
+                        <span class="anvText" *ngIf="isLoading && status != ''">{{status}}</span>
+                        <app-pdf-loading-spinner *ngIf="isLoading"></app-pdf-loading-spinner>
+                    </div>
+                    <!-- Download Button -->
+                    <a id="downloadFile" download>
+                        <button class="uploadButton gradientBlue" type="button" (click)="download()"
+                            *ngIf="!isLoading && !downloadDisabled" [disabled]="downloadDisabled">Download</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

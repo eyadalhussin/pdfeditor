@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  :host(app-pdf-editor) {
+    /* height: 100%;
+    width: 100%; */
+    --font: 0.9em;
+    --textColor: #fff;
+  }
+  
+  
+  
+  .mainContainer {
+    /* height: 100%;
+    width: 100%; */
+    min-height: 100vh;
+    background: rgb(0,106,179);
+    background: radial-gradient(circle, rgba(0,106,179,1) 0%, rgba(0,36,73,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+  }
+  
+  .bodyContainer {
+    /* height: 90%;
+    width: 90%; */
+    min-height: 80%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 1em;
+    align-items: center;
+    padding: 0.5em;
+  }
+  
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
+  
+  .logo {
+    max-height: 10%;
+    max-width: 10%;
+  }
+  
+  .logoText {
+    color: var(--textColor);
+  }
+  
+  /* Top Container */
+  .topContainer {
+    /* width: 100%;*/
+    /* height: 10%;  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  
+  /* Merged Container */
+  .mergedContainer {
+    /* width: 100%;
+    height: 60%; */
+    margin: 1em;
+  }
+  
+  .text {
+    color: white;
+    font-size: 1.5em;
+  }
+  
+  button {
+    all: unset;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  /* Welcome Container */
+  /* .welcomeContainer { */
+  /* width: 100%;
+    height: 20%; */
+  /* } */
+  
+  .welcomeTextContainer{
+    max-width: 90%;
+  }
+  
+  .welcomeText {
+    font-size: var(--font);
+    color: var(--textColor);
+  }
+  
+  /* Auth Container */
+  .authContainer {
+    /* width: 100%;
+    height: 20%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+  
+  .authButton {
+    background-color: #1D3557;
+    color: var(--textColor);
+    font-size: var(--font);
+    box-shadow: 3px 3px 2px rgb(0, 0, 0, 0.3);
+    border-radius: 5px;
+    /* width: 15%;
+    height: 80%; */
+    padding: 0.4em;
+    text-align: center;
+  }
+  
+  .authInput {
+    /* height: 80%; */
+    font-size: 0.8em;
+    padding: 0.4em;
+  }
+  
+  /* Options */
+  
+  .optionsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 0.2em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+  }
+  
+  .optionsButton {
+    background-color: #1D3557;
+    color: var(--textColor);
+    font-size: var(--font);
+    padding: 0.3em;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+    /* width: 15%;
+    height: 50%; */
+    text-align: center;
+  }
+  
+  .toolSelected{
+    background-color: #006ab3;
+    transition: 0.3s linear;
+  }
+  
+  /* Upload Container */
+  .uploadContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90vw;
+    /* width: 100%;
+    height: 100%; */
+    gap: 3em;
+    border: 0.7em solid #006ab3;
+    border-radius: 2em;
+    padding: 1em;
+  }
+  
+  .uploadButtons {
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  .uploadButton {
+    /* width: 20%;
+    height: 70%; */
+    color: var(--textColor);
+    text-align: center;
+    font-size: var(--font);
+    padding: 0.3em 2em;
+    border-radius: 0.5em;
+    box-shadow: 3px 3px 2px rgb(0, 0, 0, 0.3);
+  }
+  
+  
+  .filesContainer {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 150px;
+    display: flex;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+    overflow-x: scroll;
+    border: 2px dashed var(--textColor);
+    padding: 1em;
+    gap: 1em;
+  }
+  
+  .anvText {
+    font-size: var(--font);
+    color: var(--textColor);
+  }
+  
+  .anvContainer {
+    width: 100%;
+  }
+  
+  
+  /* Process Area */
+  .processArea {
+    /* height: 10%;
+    width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .loadingInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .gradientBlue {
+    background: linear-gradient(90deg, #1D3557 0%, #4F91EF 100%);
+  }
+  
+  .gradientRed {
+    background: linear-gradient(90deg, #571D1D 0%, #EF4F4F 100%);
+  }
+  
+  .gradientGreen {
+    background: linear-gradient(90deg, #428B28 0%, #52EF4F 100%);
+  }
+  
+  .center{
+    justify-content: center;
+    align-items: center;
+  }
+  
+  :disabled{
+    background-color: grey;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  /* .uploadFileContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  
+  .uploadFile{
+    color: white;
+    background-color: rgb(24, 56, 123);
+    border-radius: 10px;
+    border: 3px solid white;
+  } */
+  
+  @media (min-width:1200px) {
+    :host(app-pdf-editor) {
+      --font: 1.2em;
+    }
+  }
